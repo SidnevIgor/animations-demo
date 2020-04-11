@@ -12,11 +12,11 @@ import {animate} from '@angular/animations';
   animations: [
     trigger('fade',[
       transition('void => *', [
-        style({opacity: 0}),
+        style({transform:"translateX(-20px)"}),
         animate(2000)
       ]),
       transition('* => void', [
-        animate(1000,style({opacity: 0}))
+        animate(200, style({transform:"translateX(-20px)"}))
       ])
     ])
   ]
