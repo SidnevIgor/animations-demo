@@ -13,10 +13,10 @@ import {animate} from '@angular/animations';
     trigger('fade',[
       transition('void => *', [
         style({transform:"translateX(-20px)"}),
-        animate(2000)
+        animate(500)
       ]),
       transition('* => void', [
-        animate(200, style({transform:"translateX(-20px)"}))
+        animate("1000ms ease-in", style({transform:"translateX(-1000px)"}))
       ])
     ])
   ]
