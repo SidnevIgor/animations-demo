@@ -4,6 +4,7 @@ import {transition} from '@angular/animations';
 import {state} from '@angular/animations';
 import {style} from '@angular/animations';
 import {animate} from '@angular/animations';
+import {keyframes} from '@angular/animations'
 
 @Component({
   selector: 'todos',
@@ -16,7 +17,11 @@ import {animate} from '@angular/animations';
         animate(500)
       ]),
       transition('* => void', [
-        animate("1000ms ease-in", style({transform:"translateX(-1000px)"}))
+        animate("1000ms ease-in", keyframes([
+          style({offset: .2, opacity: 1, transform: "translateX(20px)"}),
+          style({offset: 1, opacity: 0, transform: "translateX(-100%)"})
+          ])
+        )
       ])
     ])
   ]
