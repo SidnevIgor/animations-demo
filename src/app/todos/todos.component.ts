@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import {animationExp} from '../animation/animation';
+import {useAnimation} from '@angular/animations';
+import {animation} from '@angular/animations';
 import {trigger} from '@angular/animations';
 import {transition} from '@angular/animations';
 import {state} from '@angular/animations';
 import {style} from '@angular/animations';
 import {animate} from '@angular/animations';
-import {keyframes} from '@angular/animations'
+import {keyframes} from '@angular/animations';
 
 @Component({
   selector: 'todos',
@@ -13,8 +16,7 @@ import {keyframes} from '@angular/animations'
   animations: [
     trigger('fade',[
       transition('void => *', [
-        style({transform:"translateX(-20px)"}),
-        animate(500)
+        useAnimation(animationExp)
       ]),
       transition('* => void', [
         animate("1000ms ease-in", keyframes([
