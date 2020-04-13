@@ -8,12 +8,24 @@ import {state} from '@angular/animations';
 import {style} from '@angular/animations';
 import {animate} from '@angular/animations';
 import {keyframes} from '@angular/animations';
+import {query} from '@angular/animations';
+import {animateChild} from '@angular/animations';
 
 @Component({
   selector: 'todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations: [
+    trigger('todosAnimation',[
+      transition('void => *',[
+        query('h1',[
+        style({transform:"translateY(-20px)"}),
+        animate(1000)
+      ]),
+      query('@fade', animateChild())
+    ])
+  ]),
+
     trigger('fade',[
       transition('void => *', [
         useAnimation(animationExp,{
@@ -42,9 +54,10 @@ export class TodosComponent {
     this.items.splice(0, 0, input.value);
     input.value = '';
   }
-
   removeItem(item) {
     let index = this.items.indexOf(item);
     this.items.splice(index, 1);
   }
+  animeStart(event){console.log(event)}
+  animeEnd(event){console.log(event)}
 }
