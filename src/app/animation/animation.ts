@@ -8,5 +8,9 @@ import {keyframes} from '@angular/animations';
 
 export const animationExp = animation([
       style({transform:"translateX(-20px)"}),
-      animate(500)
-])
+      animate('{{duration}}')
+    ],{
+      params: {
+        duration: '500ms'
+      }
+    })

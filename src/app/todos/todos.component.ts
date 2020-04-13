@@ -16,7 +16,11 @@ import {keyframes} from '@angular/animations';
   animations: [
     trigger('fade',[
       transition('void => *', [
-        useAnimation(animationExp)
+        useAnimation(animationExp,{
+          params:{
+            duration: '1000ms'
+          }
+        })
       ]),
       transition('* => void', [
         animate("1000ms ease-in", keyframes([
