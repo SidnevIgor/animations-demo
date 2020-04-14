@@ -11,6 +11,7 @@ import {keyframes} from '@angular/animations';
 import {query} from '@angular/animations';
 import {animateChild} from '@angular/animations';
 import {group} from '@angular/animations';
+import {stagger} from '@angular/animations';
 
 @Component({
   selector: 'todos',
@@ -21,7 +22,7 @@ import {group} from '@angular/animations';
       transition('void => *',[
         group([
           query('h1',[ style({transform:"translateY(-20px)"}),animate(1000)]),
-          query('@fade', animateChild())
+          query('@fade', stagger('500ms',animateChild()))
         ])
     ])
   ]),
