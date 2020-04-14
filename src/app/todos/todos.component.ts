@@ -10,6 +10,7 @@ import {animate} from '@angular/animations';
 import {keyframes} from '@angular/animations';
 import {query} from '@angular/animations';
 import {animateChild} from '@angular/animations';
+import {group} from '@angular/animations';
 
 @Component({
   selector: 'todos',
@@ -18,11 +19,10 @@ import {animateChild} from '@angular/animations';
   animations: [
     trigger('todosAnimation',[
       transition('void => *',[
-        query('h1',[
-        style({transform:"translateY(-20px)"}),
-        animate(1000)
-      ]),
-      query('@fade', animateChild())
+        group([
+          query('h1',[ style({transform:"translateY(-20px)"}),animate(1000)]),
+          query('@fade', animateChild())
+        ])
     ])
   ]),
 
