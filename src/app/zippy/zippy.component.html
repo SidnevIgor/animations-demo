@@ -1,5 +1,5 @@
 <div class="zippy">
-  <div 
+  <div
     class="zippy-heading"
     [class.expanded]="isExpanded"
     (click)="toggle()">
@@ -11,7 +11,7 @@
       }"
     ></span>
   </div>
-  <div class="zippy-body" [hidden]="!isExpanded">
+  <div [@fade] = "isExpanded?'expanded':'notexpanded'" class="zippy-body">
     <ng-content></ng-content>
   </div>
 </div>
