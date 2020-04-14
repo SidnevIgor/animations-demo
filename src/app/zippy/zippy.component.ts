@@ -19,9 +19,11 @@ import {stagger} from '@angular/animations';
   styleUrls: ['./zippy.component.css'],
   animations: [
     trigger('fade',[
-      state('expanded', style({height: '*',overflow: 'auto'})),
-      state('notexpanded',style({height: 0,overflow:'hidden',paddingTop: 0, paddingBottom: 0})),
-      transition('notexpanded => expanded',[animate(500)]),
+      state('notexpanded',style({height: 0,overflow:'hidden',paddingTop: 0, paddingBottom: 0, opacity: 0})),
+      transition('notexpanded => expanded',[
+        animate("500ms", style({height: '*',overflow: 'auto', paddingTop: '*'})),
+        animate("1s", style({opacity: 1}))
+      ]),
       transition('expanded => notexpanded',[animate(500)])
     ])
   ]
